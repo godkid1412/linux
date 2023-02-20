@@ -61,4 +61,16 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
  - join
   -
  - paste
-###4.2 tac, sort, split, 
+### 4.2 tac, sort, split, uniq, nl
+ - tac
+ - sort
+ - split
+ - uniq
+ - nl
+### 4.3 File-Viewing Commands: head, tail, less, cut, wc
+ - head
+ - tail
+ - less
+ - cut
+ - wc
+### 4.4
