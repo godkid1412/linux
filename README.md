@@ -58,6 +58,7 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
   - Nối 1 đoạn nội dung của text file vào text file khác và kết hợp với nhau
   - Option: 
     <img width="1133" alt="image" src="https://user-images.githubusercontent.com/54473576/220072276-8caf9568-0f73-42e2-9e92-9f29ff30f7f0.png">
-
  - join
+  -
  - paste
+###4.2 tac, sort, split, 
