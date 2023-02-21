@@ -126,6 +126,47 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
 
  - Dòng 1: hiển thị thông tin chung của hệ thống, thời gian hiện tại, thời gian up, số user logged in, load averager của hệ thống.
    - Load average: mức độ tải trung bình của CPU trong 1m, 5m, 15m
- - Dòng 2: Hiển thị thông 
+ - Dòng 2: Hiển thị thông tin chung về process (tasks in top)
+ - Dòng 3: Thông tin về CPU
+ - Dòng 4 + 5: Thông tin về tình trạng RAM
+ 
+|Command Output|Description|
+|---|---|
+|PID|The process ID of the process|
+|USER|username thực thi task|
+|PR|Độ ưu tiên của tiến trình. Số càng thấp thì mức độ ưu tiên càng cao|
+|NI|Giá trị nice value của tiến trình, ảnh hưởng đến độ ưu tiên của tiến trình đó|
+|VIRT|Bộ nhớ ảo đang được sử dụng cho tiến trình|
+|RES|Bộ nhớ RAM đang được sử dụng cho tiến trình|
+|SHR|Bộ nhớ được chia sẻ với process khác|
+|S|Process status (D: `interruptible sleep (chờ 1 sự kiện hoàn tất)`, I: `idle`, R: `running`, S: `sleeping`, T:`traced` or `stopped`, and Z: `zombie`)|
+|%CPU|% sử dụng CPU|
+|%MEM|% sử dụng MEM|
+|TIME+|Tổng CPU time đã chạy|
+|COMMAND|Tên lệnh của process|
+
+Sắp xếp danh sách `top`
+ - `M` để sắp xếp theo mức sử dụng bộ nhớ
+ - `P` để sắp xếp theo mức độ sử dụng CPU
+ - `N` để sắp xếp theo ID tiến trình
+ - `T` để sắp xếp theo thời gian chạy
 
 ### 5.3: htop
+
+<img width="1251" alt="image" src="https://user-images.githubusercontent.com/54473576/220246476-c2c3d4f3-7145-4bf4-9772-6712614e96ab.png">
+
+ - Mức dùng CPU:
+   - Xanh lam: Các tiến trình độ ưu tiên thấp
+   - Xanh lục: Các tiến trình người dùng
+   - Đỏ: Các tiến trình hạt nhân( kernel)
+ - Mức dùng RAM:
+   - Xanh lục: bộ nhớ đã dùng
+   - Xanh dương: bộ nhớ đệm
+   - Vàng: bộ nhớ cache
+ - Kill process: dùng điều hướng lên xuống di chuyển đến đúng process rồi nhấn F9 và nhấn Enter để xác nhận xoá hoặc Esc để huỷ
+ - Nhấn F7 F8 để chỉnh quuyền ưu tiên của process
+ - Tree view: Có những process chạy độc lập nhưng có những process có các threads chạy bên trong. Để xem được dưới dạng tree bạn chỉ cần ấn phím F5.
+ - Searching: Ấn F3 rồi gõ tên process. Nếu khớp thì dòng process đc highlight lên, nhấn F3 để tìm tiếp
+ - Filter: Nhấn F4 rồi gõ tên process. Sau đó htop hiển thị các process có cùng tên filter
+ - Sort: Nhấn chuột vào tiêu đề cột để sắp xếp
+ - Quit: Nhấn F10
