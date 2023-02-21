@@ -218,13 +218,38 @@ kill  -9 3546 5557 4242
 ## 9: Managing File and Filesystems
 
 #### 9.1: Managing File
+ 
+ - Hiển thị file: ls [option] [file]
+   <img width="619" alt="image" src="https://user-images.githubusercontent.com/54473576/220310478-83fe0131-4eaa-4dfc-aa70-1001871edbc0.png">
+
 
  - Create file: `touch file_name`
  - Copy Files and Directories:
-   -  cp []
- 
+   - `cp [option] SOURCE DEST`
+   <img width="639" alt="image" src="https://user-images.githubusercontent.com/54473576/220309778-8c0845de-1f8b-4bcf-9808-155dcd079504.png">
 
+   - pwd: vị trí hiện tại
+ - Move File: `mv [option] SOURCE DEST`
+   <img width="606" alt="image" src="https://user-images.githubusercontent.com/54473576/220312436-4176c314-53f7-48c3-b067-3b41af6ef1c2.png">
 
-### 9.2: Filesystems
+ -Delete File: `rm [OPTION]... FILE`
+   <img width="614" alt="image" src="https://user-images.githubusercontent.com/54473576/220312765-3c5ff84f-3dbc-42ec-a483-fc37704a01eb.png">
 
-## 10:
+### 9.2: Managing Filesystems
+
+ - Retrieving Filesystem Stats
+   - df: hiển thị ổ cứng sử dụng theo phân vùng
+   - du: hiển thị sử dụng theo thư mục ( tốt cho tìm kiếm user, application chiếm nhiều không gian)
+   - iostat: Hiển thị biểu đồ theo thời gian thực
+
+## 10: Understand Files System Type
+ - ext:
+ - ext2:
+ - ext3:
+ - ext4:
+## 11: Check file system `fsck`
+
+## 12: Monitoring Disk `df` `du`
+
+- df: hiển thị ổ cứng sử dụng theo phân vùng
+- du: hiển thị sử dụng theo thư mục ( tốt cho tìm kiếm user, application chiếm nhiều không gian)
