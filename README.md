@@ -83,15 +83,44 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
 ## 5. Manage Processes
 ### 5.1: ps
 <img width="741" alt="image" src="https://user-images.githubusercontent.com/54473576/220228385-8df641e6-e800-4bc2-b16f-ee2f701b4701.png">
- ps: 
+
+
+ ps:
+ 
   - chọn tất cả processes giống User ID(UID) với người dùng hiện tại
+
   - PID: được gắn cho mỗi process
+
   - PPID: PID của process khác nếu nó đc khởi chạy từ 1 process khác
+ 
   - C:
+  
   - STIME: System time khi process bắt đầu
+  
   - TTY: terminal mà process bắt đầu
+ 
   - TIME: thời gian CPU dành cho process
+ 
   - CMD: Tên của ctrinh bắt đầu process
+ 
+|Option|Description|
+|---|---|
+|a|Hiển thị toàn bộ process trên hệ thống kết hợp với tty terminal|
+|-A, -e|Hiển thị toàn bộ process trên hệ thống|
+|-C CommandList|Hiển thị processes chạy command trong CommandList|
+|-g GIDList, -group GIDList|Chỉ hiển thị processes có effective group trong GroupList|
+|-G GIDList, or -Group GIDList|Chỉ hiển thị processes có real group trong GIDList|
+|-N|Hiển thị toàn bộ processes trừ các processes đc chọn|
+|p PIDList, -p PIDList or --pid PIDList|Chỉ hiển thị processes có PIDList|
+|-r|Chỉ hiển thị các processes có state: running|
+|-t ttyList, or --tty ttyList|Hiển thị các processes liên quan đến ttyList terminal|
+|-T|Hiển thị các processes liên quan đến tty terminal hiện tại|
+|-u UserList, or --user UserList|Hiển thị các processes có effective user trong UserList|
+|-U UserList, or --User UserList|Hiển thị các processes có real user trong UserList|
+
+`Real indicates that this is the user or group the account is associated with when logging into the system and/or the primary account’s group. Effective indicates that the user or group is using a temporary alternative user or group identification, as in the case of SUID and GUID permissions`
 
 ### 5.2: top
+
+
 ### 5.3: htop
