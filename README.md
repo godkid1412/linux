@@ -217,4 +217,14 @@ kill  -9 3546 5557 4242
 
 ## 9: Managing File and Filesystems
 
+#### 9.1: Managing File
+
+ - Create file: `touch file_name`
+ - Copy Files and Directories:
+   -  cp []
+ 
+
+
+### 9.2: Filesystems
+
 ## 10:
