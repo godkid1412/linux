@@ -122,5 +122,10 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
 
 ### 5.2: top
 
+<img width="537" alt="image" src="https://user-images.githubusercontent.com/54473576/220238220-6ad92117-4325-4d3f-bc5b-5cbe70f88b0a.png">
+
+ - Dòng 1: hiển thị thông tin chung của hệ thống, thời gian hiện tại, thời gian up, số user logged in, load averager của hệ thống.
+   - Load average: mức độ tải trung bình của CPU trong 1m, 5m, 15m
+ - Dòng 2: Hiển thị thông 
 
 ### 5.3: htop
