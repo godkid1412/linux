@@ -170,3 +170,51 @@ Sắp xếp danh sách `top`
  - Filter: Nhấn F4 rồi gõ tên process. Sau đó htop hiển thị các process có cùng tên filter
  - Sort: Nhấn chuột vào tiêu đề cột để sắp xếp
  - Quit: Nhấn F10
+## 6: Foreground and Background Processes
+
+|Foreground Processes| Background Processes|
+|---|---|
+|1 process khi bắt đầu từ terminal chạy mặc định là foreground process||
+|Không cho phép huỷ bỏ trừ khi process hoàn thành|Background process chạy process in background và ko chịu ảnh hưởng từ terminal prompt|
+|Muốn quay lại terminal cần tạo 1 terminal mới hoặc stop or kill process|Có thể bắt đầu 1 session và có thể sử dụng terminal đó|
+||Gửi 1 command chạy background cần thêm `&` ở cuối câu |
+
+## 7: Killing Processes
+
+Signal list:
+<img width="516" alt="image" src="https://user-images.githubusercontent.com/54473576/220282044-917127e9-0e6f-4bda-b4d4-7eac855b81ba.png">
+
+User thường dùng signal 9 hoặc 15
+Command to kill process
+```
+kill -[signal] PID
+kill -15 PID
+kill -9 PID
+kill -SIGTERM PID
+kill [options] -SIGTERM PID
+```
+Rule to kill process
+ - Kill process của chính mình
+ - Mỗi `root` có thể kill process mức độ system
+ - Mỗi `root` có thể kill process được bắt đầu bưởi user khác
+
+Example:
+```
+kill  pid1 pid2 pid3
+kill -15  pid1 pid2 pid3
+kill -9  pid1 pid2 pid3
+kill  -9 3546 5557 4242
+```
+## 8: Manage software
+### 8.1: Package, dependencies, conflicts, binary packet
+ - Packet: bundle được biên dịch từ các ứng dụng. Chứa các file bắt buộc để chạy 1 ứng dụng
+ - Library dependencies: Cơ sở dữ liệu các package (thư viện file yêu cầu để chạy mỗi ứng dụng và có thể cảnh báo nếu dependent library file không có khi tải package về)
+ - Conflic:
+ - Binary package: Là 1 file lưu trữ chứa tất cả file và đường dẫn có thể cài đặt theo trình tự của ctrinh bao gồm cả package, maintainer script cần thiết để cài đặt
+ 
+### 8.2: Các trình nén trong Linux: `tar` `zip` `unrar` `gunzip`
+
+
+## 9: Managing File and Filesystems
+
+## 10:
