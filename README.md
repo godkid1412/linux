@@ -18,6 +18,7 @@ Xem thông tin biến:
 env NAME_VARIABLES
 printenv NAME_VARIABLES
 ```
+
 Nguồn: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-read-and-set-environmental-and-shell-variables-on-linux)
 ## 2.Getting Help
  Dùng `man [command]`, `[command] -h`, `whatis [command]`, `info [command]`
@@ -29,6 +30,7 @@ Nguồn: [DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-
  info ping
  ```
 tuy nhiên `whatis` cho ra thông tin hạn chế hơn so với những cái khác
+
 Nguồn: [Vtux](https://vitux.com/get-help-on-linux-shell/#:~:text=How%20to%20use%20%E2%80%93h%20or,that%20command%20as%20shown%20below.)
 
 ## 3. Using Streams, Redirection, Pipes
@@ -36,6 +38,7 @@ Nguồn: [Vtux](https://vitux.com/get-help-on-linux-shell/#:~:text=How%20to%20us
   - Standard input stream `stdin`: cho phép text được làm đầu vào, đọc từ file text
   - Standard output stream `stdout`: text đc hiển thị từ các shell, ghi vào file text
   - Standard error `stderr`: error message được hiển thị từ các shell, ghi vào file text
+
 Nguồn: [HowToGeek](https://www.howtogeek.com/435903/what-are-stdin-stdout-and-stderr-on-linux/)
 Nguồn: []()
 ### 3.2 Redirection
@@ -73,4 +76,22 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
  - less
  - cut
  - wc
-### 4.4
+### 4.4 grep, sed, awk
+ - grep
+ - sek
+ - awk
+## 5. Manage Processes
+### 5.1: ps
+<img width="741" alt="image" src="https://user-images.githubusercontent.com/54473576/220228385-8df641e6-e800-4bc2-b16f-ee2f701b4701.png">
+ ps: 
+  - chọn tất cả processes giống User ID(UID) với người dùng hiện tại
+  - PID: được gắn cho mỗi process
+  - PPID: PID của process khác nếu nó đc khởi chạy từ 1 process khác
+  - C:
+  - STIME: System time khi process bắt đầu
+  - TTY: terminal mà process bắt đầu
+  - TIME: thời gian CPU dành cho process
+  - CMD: Tên của ctrinh bắt đầu process
+
+### 5.2: top
+### 5.3: htop
