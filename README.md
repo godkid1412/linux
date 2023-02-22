@@ -249,7 +249,128 @@ kill  -9 3546 5557 4242
  - ext4:
 ## 11: Check file system `fsck`
 
+ fsck: file system comsistency check: fsck chạy lúc khởi động nếu phát hiện 1 vài đkien:
+   - 1 file system đc dánh dấu `dirty` 
+   - 1 file system đc gắn số mà ko đc kiểm tra
+  Lệnh `fsck` tự tương tác với lệnh `fsck` dành riêng cho hệ thống tập tin phù hợp được tạo bởi các tác giả của hệ thống tập tin. Bất kể loại hệ thống tập tin, `fsck` thường có ba chế độ hoạt động:
+   - Kiểm tra và nhắc nhở user tương tác để quyết định hướng sửa lỗi
+   - Kiểm tra lỗi và tự động sửa lỗi
+   - Kiểm tra lỗi và không cố gắng sửa lỗi nhưng hiển thị lỗi qua `stdout` standard output
+ Mặc dù thường chạy vào thời điểm khởi động, `fsck` có thể chạy thủ công trên các hệ thống tập tin không được xem xét bởi một superuser. 
+ 
+ `filesys` là device name (/dev/hdc1, /dev/sdb2,...), 1 mount point (/usr, /home), 1 ext2 label, UUID specifier
+ Mã thoát được `fsck` trả về là một số duy nhất biểu thị tổng của các giá trị điều kiện sau:
+ |Number|Description|
+ |---|---|
+ |0|Không lỗi|
+ |1|Filesystem đã được sửa lỗi|
+ |2|System cần đc reboot|
+ |4|Filesystem lỗi chưa đc sửa|
+ |8|Lỗi hoạt động|
+ |16|Lỗi sử dụng hoặc cú pháp sai|
+ |32|`fsck` đc huỷ bởi user yêu cầu|
+ |128|Share-library lỗi|
 ## 12: Monitoring Disk `df` `du`
 
 - df: hiển thị ổ cứng sử dụng theo phân vùng
 - du: hiển thị sử dụng theo thư mục ( tốt cho tìm kiếm user, application chiếm nhiều không gian)
+
+## 13: Creating Filesystem: `mkfs`
+ 
+ `mkfs` (makes file systems). HĐH khác, tạo file system là formating. Nó là quá trình cbi phân vùng để chứa dữ liệu
+ Phân vùng cần cơ chế để lưu trữ tên, vị trí của file, nhiều thông tin khác: thời gian tạo, thời gina sửa, kích thước của file,...
+ Syntax: `mkfs.file_sys_type device_filename`
+   ```
+   mkfs.ext2 /dev/fb0
+   mkfs.ext2 ~/howtogeek.img
+   ```
+ ## 14: Mounting and Unmounting Filesystems
+ 
+  Để có thể truy cập/ sử dụng các thiết bị USB, CD/DVD, file ISO, tài nguyên qua mạng,... thì các thiết bị này cần đc `mount` (gắn) vào thư mục trống `mount point`. Khi muốn gỡ các thiết bị đang hoạt động khỏi hệ thống thì cần ngắt kết nối `unmount` giữa các thiết bị vs mount point trước đó
+  
+  ```
+  moubt -t <type> -o <option> <device file> <mount point>
+  ```
+  
+  Để unmount dùng lênh `**umount**`
+  ```
+  umount device_file
+  ```
+  hoặc
+  ```
+  umount mounit_file
+  ```
+ Mount ổ cứng bằng UUID
+  Kiểm tra UUID của ổ cứng sử dụng:
+  ```
+   lsblk -o NAME,UUID,SIZE
+  ```
+  Kết quả: 
+  <img width="554" alt="image" src="https://user-images.githubusercontent.com/54473576/220550094-8a557363-167e-4865-a6a6-d267272ebd6d.png">
+  
+  Cách 1: Mở file /etc/fstab và thêm dòng vào cuối file:
+    ```
+    UUID=fb315fe6-xxxx-xxxx-8d30-80f44a874420 /home/tmp/ ext4 defaults 0 0
+    ```
+  Cách 2: Thực thi câu lệnh:
+   ```
+   echo "UUID=fb315fe6-xxxx-xxxx-8d30-80f44a874420      /home/tmp/   ext4    defaults     0   0" >> "/etc/fstab"
+   ```
+ ## 15: Partitioning Disk
+  - Là 1 container với file system (NTFS: Windows, HFS+: MacOS, ext4: Linux,...)
+  - `fdisk -l`: hiển thị danh sách các phân vùng
+    <img width="543" alt="image" src="https://user-images.githubusercontent.com/54473576/220558590-101c8e57-bafe-4285-b9d0-d65fd4751019.png">
+
+  - `fdisk /dev/sda`
+  <img width="474" alt="image" src="https://user-images.githubusercontent.com/54473576/220560357-bfafe819-1c2f-4601-90a2-43550027fe46.png">
+
+  - Xem bảng phân vùng dùng `p`
+  - Xoá phân vùng dùng`d`
+  - Tạo phân vùng dùng `n`
+  - Dùng `w` để lưu những thay đổi và thoát
+  - Dùng `q` để thoát mà ko lưu thay đổi
+  - Sau khi tạo phân vùng, dùng `mkfs` để định dạng lại phân vùng và sử dụng chúng
+  
+## 16: Understanding RAID, `mdadm` command
+
+ ### 16.1: Understanding RAID
+  
+  - Redundant Array of Inexpensive Disks (RAID) thay đổi môi trường lưu trữ hầu hết ở DC
+  - Công nghệ RAID cho phép bạn cải thiện hiệu suất và độ tin cậy truy cập dữ liệu, cũng như triển khai dự phòng dữ liệu để dung sai lỗi bằng cách kết hợp nhiều ổ đĩa thành một ổ đĩa ảo. Một số phiên bản RAID thường được sử dụng:
+    - RAID 0: Ghi dữ liệu theo phương thức đặc biệt: `Striping`. Chia dữ liệu thành nhiều phần rồi ghi các phần vào ổ cứng chạy RAID
+    - RAID 1: Ghi dữ liệu theo phương thức `mirroring`. 
+    - RAID 10: Cần tối thiểu 4 ổ cứng để làm việc. Dữ liệu được ghi đồng thời lên 4 ổ với 2 ổ dạng striping và 2 ổ dạng mirroring. Tổng dung lượng bằng 1/2 dung lượng 4 ổ cứng
+    - RAID 4: 
+    - RAID 5: 
+    - RAID 6: 
+
+### 16.2: `mdadm` command
+
+## 17: Understanding LVM, create/resize/delete lvm, pv, pg
+ Logical Volume Management (LVM) dùng quản lý các thiết bị lưu trữ.
+ LVM là 1 tiện ích cho phép thay đổi không gian đĩa cứng thành những Logical Volume từ đó giúp việc thay đổi kích thước dễ hơn
+ 
+ ### create/resize/delete lvm, pv, pg
+
+## 17: Filesystem Hierarchy Standard
+<img width="641" alt="image" src="https://user-images.githubusercontent.com/54473576/220582309-c611d5ae-22bc-43a2-a183-ce8f636d1389.png">
+
+## 18: Managing Files and Link: `ls`, `cp`, `mv`, `rm`, `touch`, `ln`
+
+ - Hiển thị file: ls [option] [file]
+   <img width="619" alt="image" src="https://user-images.githubusercontent.com/54473576/220310478-83fe0131-4eaa-4dfc-aa70-1001871edbc0.png">
+
+
+ - Create file: `touch file_name`
+ - Copy Files and Directories:
+   - `cp [option] SOURCE DEST`
+   <img width="639" alt="image" src="https://user-images.githubusercontent.com/54473576/220309778-8c0845de-1f8b-4bcf-9808-155dcd079504.png">
+
+   - pwd: vị trí hiện tại
+ - Move File: `mv [option] SOURCE DEST`
+   <img width="606" alt="image" src="https://user-images.githubusercontent.com/54473576/220312436-4176c314-53f7-48c3-b067-3b41af6ef1c2.png">
+
+ -Delete File: `rm [OPTION]... FILE`
+   <img width="614" alt="image" src="https://user-images.githubusercontent.com/54473576/220312765-3c5ff84f-3dbc-42ec-a483-fc37704a01eb.png">
+
+ 
