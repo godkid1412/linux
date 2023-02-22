@@ -373,4 +373,48 @@ kill  -9 3546 5557 4242
  -Delete File: `rm [OPTION]... FILE`
    <img width="614" alt="image" src="https://user-images.githubusercontent.com/54473576/220312765-3c5ff84f-3dbc-42ec-a483-fc37704a01eb.png">
 
+## 19: Managing File Ownership: `chown`, `chgrp`
+
+ ### 19.1: Changing a File's Owner
+   Chỉ mỗi `root user` hoặc `super user privileges` có thể thay đổi quyền sở hữu 1 file hoặc 1 directory bằng cách sử dụng  `chown`
+   ```
+   chown [ OPTIONS ] NEWOWNER FILENAMES1 [FILENAME2 ...]
+   ```
+   <img width="472" alt="image" src="https://user-images.githubusercontent.com/54473576/220588512-dbac7f4a-445f-4ff4-b44e-f2c117919fa8.png">
+
+   
+ ### 19.2: Changing a File's Group
+   Chỉ mỗi `root user` hoặc `super user privileges` có thể thay đổi nhóm chỉ định của 1 file hoặc 1 directory bằng cách sử dụng  `chgrp`
+   ```
+   chgrp [OPTIONS] NEWGROUP FILENAMES
+   ```
+   <img width="494" alt="image" src="https://user-images.githubusercontent.com/54473576/220588559-c11b41a6-6cef-43be-bb31-13bfdfc68d92.png">
+
+## 20: Controlling Access fo Files: Permissions, `chmod`
+
+ ### 20.1: Understanding Permissions
+   <img width="364" alt="image" src="https://user-images.githubusercontent.com/54473576/220590856-8b3b07ea-2216-4694-ac87-9d0f48240c5c.png">
+
+   - File type code `-`
+   - Permission string`rw-r--r--`
+   - Hard link count `1`
+   - File owner `root`
+   - File group `root`
+   - File size `41`
+   - Last modification date `Feb 20 17:18`
+   - Filename `myfile1.txt`
  
+ <img width="603" alt="image" src="https://user-images.githubusercontent.com/54473576/220594778-68901017-9996-4414-8115-ceab57e9270f.png">
+
+<img width="496" alt="image" src="https://user-images.githubusercontent.com/54473576/220594828-92fe1ad3-b76c-4af0-9e30-29421f7997f8.png">
+
+ 
+ ### 20.2: `chmod`
+ #### 20.2.1: Using `chmod` with Symbolic Mode
+   <img width="355" alt="image" src="https://user-images.githubusercontent.com/54473576/220597088-1b3deda3-f687-4c5c-b1c5-be212dc45f5d.png">
+
+  
+   
+## 21: Tools for Locating Files
+
+
