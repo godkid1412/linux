@@ -411,9 +411,32 @@ kill  -9 3546 5557 4242
  
  ### 20.2: `chmod`
  #### 20.2.1: Using `chmod` with Symbolic Mode
+ 
    <img width="355" alt="image" src="https://user-images.githubusercontent.com/54473576/220597088-1b3deda3-f687-4c5c-b1c5-be212dc45f5d.png">
 
   
+  <img width="594" alt="image" src="https://user-images.githubusercontent.com/54473576/220674972-51458184-42f2-4a77-a7e8-f972d5ef0eed.png">
+Muốn thêm quyền thì dùng `+` thay vì dấu `-`
+
+<img width="596" alt="image" src="https://user-images.githubusercontent.com/54473576/220676156-ca6c15c0-26b3-4dd7-ba25-2da8fb03b064.png">
+
+### 20.2.2: Using `chmod` with Octal Mode
+
+|Octal value|Permission|Meaning|
+|---|---|---|
+|0|`---`|Không quyền|
+|1|`--x`|Mỗi quyền thực thi|
+|2|`-w-`|Mỗi quyền viết|
+|3|`-wx`|Viết và thực thi|
+|4|`r--`|Mỗi quyền đọc|
+|5|`r-x`|đọc và thực thi|
+|6|`rw-`|đọc và viết|
+|7|`rwx`|đọc, viết, thực thi|
+
+Phải có 3 giá trị octal cho owner, group và other theo đúng thứ tự
+<img width="499" alt="image" src="https://user-images.githubusercontent.com/54473576/220678302-f27dee12-9376-449d-9e15-1f7cff997ce3.png">
+
+
    
 ## 21: Tools for Locating Files
 
