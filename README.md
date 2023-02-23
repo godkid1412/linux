@@ -492,4 +492,70 @@ locate [option]... PATTERN...
   - `usr/share/man/man1/command.1.gz`: file man
 
 ### 21.4 `which`
-  
+
+## 22: The Boot Process
+
+
+## 23: Administering the System
+
+### 23.1: Managing Users and Groups
+
+#### 23.1.1: User Accounts
+  **The _/etc/login.defs_ File**
+  <img width="453" alt="image" src="https://user-images.githubusercontent.com/54473576/220851225-311d1427-64ed-44f9-bea6-352c97c1f764.png">
+
+|Name|Description|
+|---|---|
+|`PASS_MAX_DAYS`|Ngày còn lại để đổi mật khẩu, thời gian mật khẩu hết hạn|
+|`PASS_MIN_DAYS`|Ngày sau khi password đc thay đổi|
+|`PASS_MIN_LENGTH`|Ký tự tối thiểu của password|
+|`PASS_WARN_AGE`|Số ngày cảnh báo đưa ra trước khi pass hết hạn|
+|`CREATE_HOME`|Mặc định là `no`, Nếu là `yes`|
+|`ENCRYPT_METHOD`|Phương thức mã hoá mật khẩu|
+
+**The _/etc/default/useradd_ File**: 1 file cấu hình khác chỉ đạo quá trình tạo tài khoản
+
+<img width="319" alt="image" src="https://user-images.githubusercontent.com/54473576/220854183-7be23eca-893e-401b-907a-73c3683f3b51.png">
+
+|Name|Description|
+|---|---|
+|`HOME`|dựa trên directory của user|
+|`INACTIVE`|Số ngày sau khi mật khẩu đã hết hạn và chưa được thay đổi cho đến khi tài khoản sẽ bị hủy kích hoạt|
+|`SKEL`||
+|`SHELL`|ctrinh shell mặc định của user|
+
+**The _/etc/passwd_ File**
+  - Thông tin tài khoản lưu trữ ở _/etc/passwd_ file. Mỗi dòng là 1 account.
+  - Mỗi trường ở bản ghi đc phân cách bởi `:`
+<img width="346" alt="image" src="https://user-images.githubusercontent.com/54473576/220858199-7ba8100b-b58b-4297-a9f9-5da8a7a9b4d1.png">
+
+|Field No.|Description|
+|---|---|
+|1|User account's username|
+|2|Trường password. Thường ko đc sử dụng để lưu trữ password. `x`: password đc lưu trữ ở _/etc/shadow_ file|
+|3|user identification number `SID`|
+|4|Group identification number `GID`|
+|5|Comment field, thường chứa user's full name|
+|6|user account's home directory|
+|7|User account's default shell|
+
+**_useradd_ commmand**
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/54473576/220863582-e3808c1a-62e1-493f-ac9a-936626955687.png">
+
+**_passwd_ command**
+<img width="618" alt="image" src="https://user-images.githubusercontent.com/54473576/220864999-04b576b1-0b06-4d35-8fdd-57838d21d470.png">
+
+<img width="594" alt="image" src="https://user-images.githubusercontent.com/54473576/220864058-42ede883-2d9f-4e82-a171-cc0fc6644acf.png">
+
+### 23.2: Using System Log Files
+
+
+
+### 23.3: Running Job in the Future
+
+
+
+### 23.4: Backup System
+
+
+
