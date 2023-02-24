@@ -71,8 +71,8 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
  - uniq
  - nl
 ### 4.3 File-Viewing Commands: head, tail, less, cut, wc
- - head
- - tail
+ - head: mặc định xem 10 dòng đầu
+ - tail: mặc định xem 10 dòng cuối
  - less
  - cut
  - wc
@@ -547,7 +547,72 @@ locate [option]... PATTERN...
 
 <img width="594" alt="image" src="https://user-images.githubusercontent.com/54473576/220864058-42ede883-2d9f-4e82-a171-cc0fc6644acf.png">
 
+**Creat user**
+
+  ```
+  sudo useradd username
+  ```
+  Để có thể login vào tài khoản mới tạo, cần set password cho user:
+  ```
+   sudo passwd username
+  ```
+  Để thêm user và tạo Home Directory:
+  ```
+  sudo useradd -m username
+  ```
+    Home directory: /home/username
+  
+  Để tạo user với Home Directory cụ thể. Home directory: /opt/username
+  ```
+  sudo useradd -m -d /opt/username username
+  ```
+  Tạo user với UID cụ thể:
+  ```
+  sudo useradd -u 1600 username
+  Kiểm tra lại SID:
+  id -u username
+  ```
+  
+  Tạo user voéi GID cụ thể `abc`
+  ```
+  sudo useradd -g abc username
+  Kiểm tra lại GID với id commamd:
+  id -gn username
+  ```
+  
+  Tạo user với nhiều Group:
+  ```
+  sudo useradd -G users -G wheel,developers username
+  Kiểm tra với lệnh id:
+  id username
+  ```
+  
 ### 23.2: Using System Log Files
+
+#### 23.2.1: Using Log
+ Format: `stam`  `type` `severity`  `detail of event`
+ `type`: facility value ( nơi sinh ra event message)
+ |Code|Keywork|Description|
+ |---|---|---|
+ |`0`|kern|Messages đc tạo bởi system kerl|
+ |`1`|user|Messages đc tạo bởi user|
+ |`2`|mail|Messages từ mail application|
+ |`3`|daemon|Messages từ ứng dụng hệ thống đang chạỵ background|
+ |`4`|auth||
+ |`5`|syslog|Messages đc tạo bởi logging applicaton|
+ |`6`|lpr|Printer messages|
+ |`7`|news|Messages từ news application|
+ |`8`|uucp|Messages từ Unix-ti-Unix copy program|
+ |`9`|cron|Messages sinh ra từ cron job scheduler|
+ |`10`|authpriv|Secure or authentication messages|
+ |`11`|ftp|File Transfer Protocol application message|
+ |`12`|ntp|Network Time Protocol application messages|
+ |`13`|security|Log audit messages|
+ |`14`|console|Log alert messages|
+ |`15`|solaris-cron|Another scheduling daemon message type|
+ |``16-23|local0-local7|Locally defined messages|
+ 
+ <img width="640" alt="image" src="https://user-images.githubusercontent.com/54473576/221071630-730af78f-270e-4afe-9e7d-3f41f3fa0d14.png">
 
 
 
