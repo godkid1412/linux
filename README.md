@@ -77,20 +77,66 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
 
 #### 4.2.4: `uniq`
 
-  - `uniq`: Lọc những bản ghi giống nhau 
+  - `uniq`: Lọc những bản ghi giống nhau từ INPUT file, ghi dữ liệu đã lọc ra OUTPUT file
+ |Option|Descript|
+ |---|---|
+ |`-c`, `--count`|Số lần tìm thấy ở đầu dòng|
+ |`-d`, `--repeated`|Chỉ hiển thị dòng giống nhau|
+ |`-i`, `--ignore-case`|So sánh ko phân biệt hoa-thường|
+ |`-u`, `--unique`|Hiển thị các dòng ko giống nhau|
+ |`-w`, `--check-chars=N`|So sánh không quá N ký tự trong dòng|
 
-#### 4.2.5: `nl`
+#### 4.2.5: `nl`: Đánh số đầu dòng mỗi dòng của file INPUT
+
 
 ### 4.3 File-Viewing Commands: head, tail, less, cut, wc
- - head: mặc định xem 10 dòng đầu
- - tail: mặc định xem 10 dòng cuối
- - less
- - cut
- - wc
+
+ #### 4.3.1: `head`
+ ```
+ head [OPTION]... [FILE]...
+ ```
+ |Option|Description|
+ |---|---|
+ |`-c`, `--bytes=[-]num`|In ra `num` bytes đầu của mỗi file|
+ |`-n`, `--lines=[-]num`|IN ra `num` dòng đầu tiên của mỗi file|
+ |`-q`, `--quiet`, `--silent`|Không in tiêu đề của tệp|
+ |`-v`, `--verbose`|Luôn in tiêu đề của tệp|
+ 
+ #### 4.3.2: `tail`
+ 
+ #### 4.3.3: `less`
+ 
+ #### 4.3.4: `cut`
+ 
+ #### 4.3.5: `wc`
+ |Option|Description|
+|---|---|
+|`-c`, `--bytes`|In ra số byte|
+|`-m`, `--chars`|In ra số ký tự|
+|`-l`, `--lines`|In ra số dòng|
+|`-L`, `--max-line-length`|In ra chiều dài của dòng dài nhất|
+|`-w`, `--words`|In số từ trong file|
+
 ### 4.4 grep, sed, awk
- - grep
- - sek
- - awk
+
+#### 4.4.1: `grep`: Global regular expression print
+```
+grep [OPTIONS] PATTERN [FILE...]
+```
+|Short|Long|Description|
+|---|---|---|
+|`-c`|`--count`|Hiển thị số|
+|`-d action`|`--directories=action`||
+|`-E`|`--extended-regexp`||
+|`-i`|`--ignore-case`||
+|`-R`, `-r`|`--recursive`||
+|`-v`|`--invert-match`||
+
+#### 4.4.2: `sek`
+
+#### 4.4.3: `awk`
+
+ 
 ## 5. Manage Processes
 ### 5.1: ps
 <img width="741" alt="image" src="https://user-images.githubusercontent.com/54473576/220228385-8df641e6-e800-4bc2-b16f-ee2f701b4701.png">
