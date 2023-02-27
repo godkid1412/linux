@@ -43,7 +43,9 @@ Nguồn: [HowToGeek](https://www.howtogeek.com/435903/what-are-stdin-stdout-and-
 Nguồn: []()
 ### 3.2 Redirection
  <img width="1200" alt="image" src="https://user-images.githubusercontent.com/54473576/220038871-038ab1b7-97f4-410f-94b1-b18d127ed807.png">
+ 
 Nguồn: LPIC-1 page 54
+
 ### 3.3 Piping Data between Programing
  - Sử dụng vertical bar, vertical slash, or vertical line `|`
  - Có thể redirect STDOUT, STDIN, and STDERR giữa nhiều câu lệnh
@@ -65,11 +67,20 @@ Thực thi câu lệnh 1, output câu lệnh 1 đc tính như input câu lệnh 
   -
  - paste
 ### 4.2 tac, sort, split, uniq, nl
- - tac
- - sort
- - split
- - uniq
- - nl
+
+#### 4.2.1: `tac`
+  Hoạt động như `cat` nhưng in dòng cuối cùng đầu tiên
+
+#### 4.2.2: `sort`
+
+#### 4.2.3: `split`
+
+#### 4.2.4: `uniq`
+
+  - `uniq`: Lọc những bản ghi giống nhau 
+
+#### 4.2.5: `nl`
+
 ### 4.3 File-Viewing Commands: head, tail, less, cut, wc
  - head: mặc định xem 10 dòng đầu
  - tail: mặc định xem 10 dòng cuối
