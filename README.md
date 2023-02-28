@@ -297,13 +297,6 @@ kill  -9 3546 5557 4242
 -Delete File: `rm [OPTION]... FILE`
 <img width="614" alt="image" src="https://user-images.githubusercontent.com/54473576/220312765-3c5ff84f-3dbc-42ec-a483-fc37704a01eb.png">
 
-### 9.2: Managing Filesystems
-
-- Retrieving Filesystem Stats
-  - df: hiển thị ổ cứng sử dụng theo phân vùng
-  - du: hiển thị sử dụng theo thư mục ( tốt cho tìm kiếm user, application chiếm nhiều không gian)
-  - iostat: Hiển thị biểu đồ theo thời gian thực
-
 ## 10: Understand Files System Type
 
 - ext:
@@ -383,8 +376,8 @@ Kết quả:
 <img width="554" alt="image" src="https://user-images.githubusercontent.com/54473576/220550094-8a557363-167e-4865-a6a6-d267272ebd6d.png">
 
 Cách 1: Mở file /etc/fstab và thêm dòng vào cuối file:
-`    UUID=fb315fe6-xxxx-xxxx-8d30-80f44a874420 /home/tmp/ ext4 defaults 0 0
-   `
+`   UUID=fb315fe6-xxxx-xxxx-8d30-80f44a874420 /home/tmp/ ext4 defaults 0 0
+  `
 Cách 2: Thực thi câu lệnh:
 
 ```
